@@ -5,7 +5,10 @@ from django.contrib import admin
 import models
 
 
-admin.site.register(models.Host)
+class HostAdmin(admin.ModelAdmin):
+    list_display = ('id','ip_addr','status')
+
+admin.site.register(models.Host,HostAdmin)
 admin.site.register(models.HostGroup)
 admin.site.register(models.Template)
 admin.site.register(models.ServiceIndex)
